@@ -3,13 +3,13 @@
 ## Week 1 — Upload + Parse + Image OCR
 
 ### Project Setup
-- [ ] Initialize Next.js 14 project with App Router
-- [ ] Configure Tailwind CSS + Framer Motion
+- [x] Initialize Next.js 14 project with App Router
+- [x] Configure Tailwind CSS + Framer Motion
 - [ ] Set up Prisma ORM with PostgreSQL
 - [ ] Set up Supabase project (Auth + File Storage)
-- [ ] Configure environment variables (.env.local)
-- [ ] Set up project folder structure
-- [ ] Set up ESLint + Prettier
+- [x] Configure environment variables (.env.local)
+- [x] Set up project folder structure
+- [x] Set up ESLint + Prettier
 
 ### Authentication
 - [ ] Integrate Supabase Auth (email/password)

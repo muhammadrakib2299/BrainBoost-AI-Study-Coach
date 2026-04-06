@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import toast from 'react-hot-toast';
 
 interface Message {
   id: string;
@@ -20,6 +21,7 @@ export function ChatInterface({ deckId, deckTitle }: { deckId: string; deckTitle
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [streamingText, setStreamingText] = useState('');
   const [historyLoaded, setHistoryLoaded] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -42,9 +44,9 @@ export function ChatInterface({ deckId, deckTitle }: { deckId: string; deckTitle
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+  }, [messages, streamingText]);
 
-  async function sendMessage(content: string) {
+  const sendMessage = useCallback(async (content: string) => {
     if (!content.trim() || loading) return;
 
     const userMsg: Message = {
@@ -57,21 +59,62 @@ export function ChatInterface({ deckId, deckTitle }: { deckId: string; deckTitle
     setMessages((prev) => [...prev, userMsg]);
     setInput('');
     setLoading(true);
+    setStreamingText('');
 
     try {
-      const response = await fetch('/api/chat', {
+      const response = await fetch('/api/chat/stream', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ deckId, message: content }),
       });
 
-      const result = await response.json();
+      if (!response.ok) {
+        const error = await response.json();
+        toast.error(error.error || 'Failed to get response');
+        setLoading(false);
+        return;
+      }
 
-      if (result.success) {
-        setMessages((prev) => [...prev, result.data.message]);
+      const reader = response.body?.getReader();
+      const decoder = new TextDecoder();
+      let fullText = '';
+
+      if (reader) {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+
+          const chunk = decoder.decode(value, { stream: true });
+          const lines = chunk.split('\n');
+
+          for (const line of lines) {
+            if (line.startsWith('data: ')) {
+              try {
+                const data = JSON.parse(line.slice(6));
+                if (data.done) {
+                  // Streaming complete — add final message
+                  setMessages((prev) => [
+                    ...prev,
+                    {
+                      id: `ai-${Date.now()}`,
+                      role: 'ASSISTANT',
+                      content: fullText,
+                      createdAt: new Date().toISOString(),
+                    },
+                  ]);
+                  setStreamingText('');
+                } else if (data.text) {
+                  fullText += data.text;
+                  setStreamingText(fullText);
+                }
+              } catch {
+                // Skip malformed chunks
+              }
+            }
+          }
+        }
       }
     } catch {
-      // Show error as assistant message
       setMessages((prev) => [
         ...prev,
         {
@@ -81,10 +124,12 @@ export function ChatInterface({ deckId, deckTitle }: { deckId: string; deckTitle
           createdAt: new Date().toISOString(),
         },
       ]);
+      toast.error('Failed to get response');
     } finally {
       setLoading(false);
+      setStreamingText('');
     }
-  }
+  }, [loading, deckId]);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -102,7 +147,7 @@ export function ChatInterface({ deckId, deckTitle }: { deckId: string; deckTitle
       <div className="flex-1 overflow-auto space-y-4 mb-4">
         {!historyLoaded ? (
           <p className="text-center text-muted-foreground py-8">Loading...</p>
-        ) : messages.length === 0 ? (
+        ) : messages.length === 0 && !streamingText ? (
           <div className="text-center py-12">
             <p className="text-lg font-medium mb-2">Ask me anything about this topic!</p>
             <p className="text-sm text-muted-foreground mb-6">
@@ -121,24 +166,35 @@ export function ChatInterface({ deckId, deckTitle }: { deckId: string; deckTitle
             </div>
           </div>
         ) : (
-          messages.map((msg) => (
-            <div
-              key={msg.id}
-              className={`flex ${msg.role === 'USER' ? 'justify-end' : 'justify-start'}`}
-            >
+          <>
+            {messages.map((msg) => (
               <div
-                className={`max-w-[80%] px-4 py-2.5 rounded-lg text-sm leading-relaxed ${
-                  msg.role === 'USER'
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-secondary text-secondary-foreground'
-                }`}
+                key={msg.id}
+                className={`flex ${msg.role === 'USER' ? 'justify-end' : 'justify-start'}`}
               >
-                <p className="whitespace-pre-wrap">{msg.content}</p>
+                <div
+                  className={`max-w-[80%] px-4 py-2.5 rounded-lg text-sm leading-relaxed ${
+                    msg.role === 'USER'
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-secondary text-secondary-foreground'
+                  }`}
+                >
+                  <p className="whitespace-pre-wrap">{msg.content}</p>
+                </div>
               </div>
-            </div>
-          ))
+            ))}
+            {/* Streaming response */}
+            {streamingText && (
+              <div className="flex justify-start">
+                <div className="max-w-[80%] px-4 py-2.5 rounded-lg text-sm leading-relaxed bg-secondary text-secondary-foreground">
+                  <p className="whitespace-pre-wrap">{streamingText}</p>
+                  <span className="inline-block w-1.5 h-4 bg-muted-foreground/50 animate-pulse ml-0.5" />
+                </div>
+              </div>
+            )}
+          </>
         )}
-        {loading && (
+        {loading && !streamingText && (
           <div className="flex justify-start">
             <div className="bg-secondary px-4 py-2.5 rounded-lg text-sm text-muted-foreground">
               Thinking...
@@ -148,8 +204,8 @@ export function ChatInterface({ deckId, deckTitle }: { deckId: string; deckTitle
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Quick actions (when conversation is active) */}
-      {messages.length > 0 && (
+      {/* Quick actions */}
+      {(messages.length > 0 || streamingText) && (
         <div className="flex gap-2 mb-3 flex-wrap">
           {quickActions.map((action) => (
             <button

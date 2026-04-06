@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 type UploadMode = 'file' | 'text' | 'url';
 
@@ -67,13 +68,16 @@ export function FileUpload() {
 
       if (!result.success) {
         setError(result.error);
+        toast.error(result.error);
         setLoading(false);
         return;
       }
 
+      toast.success('Deck created successfully!');
       router.push(`/decks/${result.data.deckId}`);
     } catch {
       setError('Something went wrong. Please try again.');
+      toast.error('Upload failed. Please try again.');
     } finally {
       setLoading(false);
     }

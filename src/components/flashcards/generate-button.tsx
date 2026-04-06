@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 export function GenerateFlashcardsButton({ deckId }: { deckId: string }) {
   const [loading, setLoading] = useState(false);
@@ -23,12 +24,15 @@ export function GenerateFlashcardsButton({ deckId }: { deckId: string }) {
 
       if (!result.success) {
         setError(result.error);
+        toast.error(result.error);
         return;
       }
 
+      toast.success(`${result.data.count} flashcards generated!`);
       router.refresh();
     } catch {
       setError('Failed to generate flashcards. Please try again.');
+      toast.error('Failed to generate flashcards.');
     } finally {
       setLoading(false);
     }

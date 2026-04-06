@@ -6,7 +6,7 @@
 - [x] Initialize Next.js 14 project with App Router
 - [x] Configure Tailwind CSS + Framer Motion
 - [x] Set up Prisma ORM with PostgreSQL
-- [ ] Set up Supabase project (Auth + File Storage)
+- [x] Set up Supabase project (Auth + File Storage)
 - [x] Configure environment variables (.env.local)
 - [x] Set up project folder structure
 - [x] Set up ESLint + Prettier
@@ -25,7 +25,7 @@
 - [x] Design and create Quizzes / QuizAttempts tables
 - [x] Design and create StudyProgress table
 - [x] Design and create ChatMessages table (for AI tutor)
-- [ ] Run initial Prisma migration
+- [x] Run initial Prisma migration
 
 ### File Upload + Parsing
 - [x] Build file upload UI (drag & drop + file picker)
@@ -61,7 +61,7 @@
 - [x] Add "explain like I'm 5" quick action
 - [x] Add "give me an analogy" quick action
 - [x] Add "show me an example" quick action
-- [ ] Stream AI responses for better UX
+- [x] Stream AI responses for better UX
 
 ---
 
@@ -136,15 +136,15 @@
 - [x] Design Claude prompt to generate day-by-day study plan
 - [x] Build API route: POST /api/schedule/generate
 - [x] Display study plan in calendar/list view
-- [ ] Allow manual adjustments to the plan
+- [x] Allow manual adjustments to the plan
 - [x] Auto-prioritize weak topics in the schedule
 
 ### Calendar Sync
-- [ ] Implement Google Calendar API integration
+- [x] Implement Google Calendar API integration
 - [x] Implement iCal (.ics) export
 - [x] Build API route: POST /api/calendar/sync
 - [x] Add study block events to external calendar
-- [ ] Handle calendar re-sync on schedule changes
+- [x] Handle calendar re-sync on schedule changes
 
 ---
 
@@ -155,29 +155,29 @@
 - [x] Design Claude prompts for brief / medium / deep summaries
 - [x] Design Claude prompt for Cornell Notes format output
 - [x] Design Claude prompt for mind map structured output
-- [ ] Build summary display UI with format toggle
+- [x] Build summary display UI with format toggle
 
 ### Payments (Stripe)
 - [x] Set up Stripe account and API keys
 - [x] Create Free and Pro product/price in Stripe
 - [x] Build API route: POST /api/stripe/checkout
 - [x] Build API route: POST /api/stripe/webhook
-- [ ] Implement subscription status check middleware
+- [x] Implement subscription status check middleware
 - [x] Build pricing page UI
-- [ ] Add upgrade prompts on free tier limits (3 decks, 10 AI/day)
+- [x] Add upgrade prompts on free tier limits (3 decks, 10 AI/day)
 - [x] Handle subscription cancellation
 
 ### Email Reminders (Resend)
 - [x] Set up Resend account and API key
 - [x] Build daily study reminder email template
 - [x] Build API route or cron: send reminder emails
-- [ ] Add email preference settings in user profile
+- [x] Add email preference settings in user profile
 - [x] Send streak-at-risk notifications
 
 ### Polish + Responsive
-- [ ] Mobile responsive — all pages
+- [x] Mobile responsive — all pages
 - [x] Loading states and skeleton screens
-- [ ] Error handling and toast notifications
+- [x] Error handling and toast notifications
 - [x] Empty states for decks, quizzes, dashboard
 - [x] SEO: meta tags, Open Graph, favicon
 - [x] Landing page with feature showcase

@@ -38,7 +38,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Nav */}
-      <nav className="border-b border-border px-6 py-4 flex items-center justify-between">
+      <nav className="border-b border-border px-4 sm:px-6 py-4 flex items-center justify-between">
         <span className="text-xl font-bold text-primary">BrainBoost</span>
         <div className="flex items-center gap-4">
           <Link
@@ -57,8 +57,8 @@ export default function HomePage() {
       </nav>
 
       {/* Hero */}
-      <section className="flex-1 flex flex-col items-center justify-center text-center px-6 py-20 max-w-4xl mx-auto">
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+      <section className="flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-12 sm:py-20 max-w-4xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
           Study smarter, not harder
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mb-8">
@@ -83,7 +83,7 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section id="features" className="px-6 py-16 max-w-6xl mx-auto w-full">
+      <section id="features" className="px-4 sm:px-6 py-12 sm:py-16 max-w-6xl mx-auto w-full">
         <h2 className="text-2xl font-bold text-center mb-12">Everything you need to ace your exams</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((f) => (
@@ -100,7 +100,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 py-16 text-center">
+      <section className="px-4 sm:px-6 py-12 sm:py-16 text-center">
         <h2 className="text-2xl font-bold mb-4">Ready to boost your grades?</h2>
         <p className="text-muted-foreground mb-6">
           Join thousands of students studying smarter with AI-powered tools.
@@ -114,7 +114,7 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border px-6 py-6 text-center text-sm text-muted-foreground">
+      <footer className="border-t border-border px-4 sm:px-6 py-6 text-center text-sm text-muted-foreground">
         &copy; {new Date().getFullYear()} BrainBoost. All rights reserved.
       </footer>
     </div>

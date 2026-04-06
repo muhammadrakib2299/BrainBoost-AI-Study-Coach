@@ -3,6 +3,7 @@ import { createServerSupabaseClient } from '@/lib/supabase/server';
 import { extractTextFromPDF } from '@/lib/parse-pdf';
 import { extractTextFromImage } from '@/lib/parse-image';
 import { db } from '@/lib/db';
+import { checkDeckLimit } from '@/lib/subscription';
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 const ALLOWED_PDF = ['application/pdf'];
@@ -17,6 +18,12 @@ export async function POST(request: NextRequest) {
 
     if (!user) {
       return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
+
+    // Check free tier deck limit
+    const deckLimit = await checkDeckLimit(user.id);
+    if (!deckLimit.allowed) {
+      return NextResponse.json({ success: false, error: deckLimit.message }, { status: 403 });
     }
 
     const formData = await request.formData();

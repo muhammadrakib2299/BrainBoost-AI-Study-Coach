@@ -3,6 +3,7 @@ import { createServerSupabaseClient } from '@/lib/supabase/server';
 import { anthropic } from '@/lib/claude';
 import { db } from '@/lib/db';
 import { TUTOR_SYSTEM_PROMPT } from '@/lib/prompts';
+import { checkAiLimit } from '@/lib/subscription';
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,6 +14,12 @@ export async function POST(request: NextRequest) {
 
     if (!user) {
       return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
+
+    // Check AI usage limit
+    const aiLimit = await checkAiLimit(user.id);
+    if (!aiLimit.allowed) {
+      return NextResponse.json({ success: false, error: aiLimit.message }, { status: 403 });
     }
 
     const { deckId, message } = await request.json();

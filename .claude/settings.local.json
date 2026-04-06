@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp -r brainboost-temp/* .)",
+      "Bash(cp brainboost-temp/.eslintrc.json .)",
+      "Bash(cp brainboost-temp/.gitignore .)",
+      "Bash(rm -rf brainboost-temp)",
+      "Bash(npm install:*)",
+      "Bash(npx next:*)",
+      "Bash(npx prisma:*)"
+    ]
+  }
+}

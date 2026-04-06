@@ -68,34 +68,34 @@
 ## Week 3 — Quiz Mode + Active Recall + Scoring
 
 ### Quiz Engine
-- [ ] Build API route: POST /api/quiz/generate
-- [ ] Design Claude prompt for multiple choice question generation
-- [ ] Design Claude prompt for true/false question generation
-- [ ] Design Claude prompt for fill-in-the-blank generation
-- [ ] Design Claude prompt for essay-type question generation
-- [ ] Build quiz UI — question display + answer selection
-- [ ] Implement answer validation and scoring
-- [ ] Add AI explanation on wrong answers (Claude API)
-- [ ] Build quiz results summary page
+- [x] Build API route: POST /api/quiz/generate
+- [x] Design Claude prompt for multiple choice question generation
+- [x] Design Claude prompt for true/false question generation
+- [x] Design Claude prompt for fill-in-the-blank generation
+- [x] Design Claude prompt for essay-type question generation
+- [x] Build quiz UI — question display + answer selection
+- [x] Implement answer validation and scoring
+- [x] Add AI explanation on wrong answers (Claude API)
+- [x] Build quiz results summary page
 
 ### Timed Exam Mode
-- [ ] Add countdown timer component
-- [ ] Implement configurable time limits
-- [ ] Auto-submit on timer expiry
-- [ ] Show time-per-question stats in results
+- [x] Add countdown timer component
+- [x] Implement configurable time limits
+- [x] Auto-submit on timer expiry
+- [x] Show time-per-question stats in results
 
 ### Active Recall Writing
-- [ ] Build writing prompt UI (topic displayed, textarea for response)
-- [ ] Build API route: POST /api/recall/evaluate
-- [ ] Design Claude prompt to compare response vs source material
-- [ ] Display completeness score + missed concepts
-- [ ] Save recall attempts to progress history
+- [x] Build writing prompt UI (topic displayed, textarea for response)
+- [x] Build API route: POST /api/recall/evaluate
+- [x] Design Claude prompt to compare response vs source material
+- [x] Display completeness score + missed concepts
+- [x] Save recall attempts to progress history
 
 ### Weak Spot Analysis
-- [ ] Track wrong answers by topic/concept
-- [ ] Build API route: GET /api/analytics/weak-spots
-- [ ] Identify mistake patterns (confused terms, missed edge cases)
-- [ ] Store weak spot data per user per deck
+- [x] Track wrong answers by topic/concept
+- [x] Build API route: GET /api/analytics/weak-spots
+- [x] Identify mistake patterns (confused terms, missed edge cases)
+- [x] Store weak spot data per user per deck
 
 ---
 

@@ -122,28 +122,28 @@
 ## Week 5 — Dashboard + Schedule + Calendar Sync
 
 ### Progress Dashboard
-- [ ] Build dashboard layout page
-- [ ] Implement topic mastery percentage chart (Recharts)
-- [ ] Implement daily study streak tracker
-- [ ] Implement quiz score history chart
-- [ ] Implement time studied chart
-- [ ] Add cards reviewed today / this week stats
-- [ ] Build exam readiness score algorithm
-- [ ] Display predicted readiness score prominently
+- [x] Build dashboard layout page
+- [x] Implement topic mastery percentage chart (Recharts)
+- [x] Implement daily study streak tracker
+- [x] Implement quiz score history chart
+- [x] Implement time studied chart
+- [x] Add cards reviewed today / this week stats
+- [x] Build exam readiness score algorithm
+- [x] Display predicted readiness score prominently
 
 ### Study Schedule
-- [ ] Build exam date input UI
-- [ ] Design Claude prompt to generate day-by-day study plan
-- [ ] Build API route: POST /api/schedule/generate
-- [ ] Display study plan in calendar/list view
+- [x] Build exam date input UI
+- [x] Design Claude prompt to generate day-by-day study plan
+- [x] Build API route: POST /api/schedule/generate
+- [x] Display study plan in calendar/list view
 - [ ] Allow manual adjustments to the plan
-- [ ] Auto-prioritize weak topics in the schedule
+- [x] Auto-prioritize weak topics in the schedule
 
 ### Calendar Sync
 - [ ] Implement Google Calendar API integration
-- [ ] Implement iCal (.ics) export
-- [ ] Build API route: POST /api/calendar/sync
-- [ ] Add study block events to external calendar
+- [x] Implement iCal (.ics) export
+- [x] Build API route: POST /api/calendar/sync
+- [x] Add study block events to external calendar
 - [ ] Handle calendar re-sync on schedule changes
 
 ---

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { createServerSupabaseClient } from '@/lib/supabase/server';
 import { db } from '@/lib/db';
 import { formatDate } from '@/lib/utils';
+import { GenerateFlashcardsButton } from '@/components/flashcards/generate-button';
 
 export default async function DeckDetailPage({ params }: { params: { id: string } }) {
   const supabase = createServerSupabaseClient();
@@ -69,9 +70,7 @@ export default async function DeckDetailPage({ params }: { params: { id: string 
           <p className="text-muted-foreground mb-4">
             Generate flashcards from your uploaded content using AI.
           </p>
-          <button className="bg-primary text-primary-foreground px-6 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity">
-            Generate Flashcards with AI
-          </button>
+          <GenerateFlashcardsButton deckId={deck.id} />
         </div>
       ) : (
         <div className="space-y-3">

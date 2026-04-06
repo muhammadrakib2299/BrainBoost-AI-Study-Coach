@@ -42,25 +42,25 @@
 ## Week 2 — AI Flashcard Generation + Tutor Chat
 
 ### Flashcard Generation
-- [ ] Design Claude API prompt for concept extraction
-- [ ] Design Claude API prompt for Q&A pair generation
-- [ ] Build API route: POST /api/flashcards/generate
-- [ ] Create flashcard deck view UI
-- [ ] Add card flip animation (Framer Motion)
-- [ ] Implement edit card functionality
-- [ ] Implement delete card functionality
-- [ ] Add "regenerate card" with Claude API
-- [ ] Add manual card creation
-- [ ] Implement deck management (create, rename, delete decks)
+- [x] Design Claude API prompt for concept extraction
+- [x] Design Claude API prompt for Q&A pair generation
+- [x] Build API route: POST /api/flashcards/generate
+- [x] Create flashcard deck view UI
+- [x] Add card flip animation (Framer Motion)
+- [x] Implement edit card functionality
+- [x] Implement delete card functionality
+- [x] Add "regenerate card" with Claude API
+- [x] Add manual card creation
+- [x] Implement deck management (create, rename, delete decks)
 
 ### AI Tutor Chat
-- [ ] Build chat UI component (per topic/deck)
-- [ ] Build API route: POST /api/chat
-- [ ] Design Claude API system prompt for tutor persona
-- [ ] Implement conversation history storage in DB
-- [ ] Add "explain like I'm 5" quick action
-- [ ] Add "give me an analogy" quick action
-- [ ] Add "show me an example" quick action
+- [x] Build chat UI component (per topic/deck)
+- [x] Build API route: POST /api/chat
+- [x] Design Claude API system prompt for tutor persona
+- [x] Implement conversation history storage in DB
+- [x] Add "explain like I'm 5" quick action
+- [x] Add "give me an analogy" quick action
+- [x] Add "show me an example" quick action
 - [ ] Stream AI responses for better UX
 
 ---

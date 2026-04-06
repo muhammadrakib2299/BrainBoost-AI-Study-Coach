@@ -107,11 +107,11 @@ export function QuizSession({
       </div>
 
       {/* Question */}
-      <div className="border border-border rounded-lg p-6 mb-6">
+      <div className="border border-border rounded-lg p-4 sm:p-6 mb-6">
         <span className="text-xs bg-secondary text-secondary-foreground px-2 py-1 rounded mb-3 inline-block">
           {q.type.replace('_', ' ')}
         </span>
-        <p className="text-lg font-medium mb-4">{q.question}</p>
+        <p className="text-base sm:text-lg font-medium mb-4">{q.question}</p>
 
         {/* Answer input based on type */}
         {q.type === 'multiple_choice' && q.options && (
@@ -120,7 +120,7 @@ export function QuizSession({
               <button
                 key={option}
                 onClick={() => setAnswers({ ...answers, [q.id]: option })}
-                className={`w-full text-left px-4 py-3 rounded-lg border transition-colors ${
+                className={`w-full text-left px-3 sm:px-4 py-3 rounded-lg border transition-colors text-sm sm:text-base min-h-[44px] ${
                   answers[q.id] === option
                     ? 'border-primary bg-primary/10 text-primary'
                     : 'border-border hover:bg-secondary'
@@ -133,12 +133,12 @@ export function QuizSession({
         )}
 
         {q.type === 'true_false' && (
-          <div className="flex gap-3">
+          <div className="flex gap-2 sm:gap-3">
             {['True', 'False'].map((option) => (
               <button
                 key={option}
                 onClick={() => setAnswers({ ...answers, [q.id]: option })}
-                className={`flex-1 px-4 py-3 rounded-lg border transition-colors ${
+                className={`flex-1 px-3 sm:px-4 py-3 rounded-lg border transition-colors min-h-[44px] ${
                   answers[q.id] === option
                     ? 'border-primary bg-primary/10 text-primary'
                     : 'border-border hover:bg-secondary'

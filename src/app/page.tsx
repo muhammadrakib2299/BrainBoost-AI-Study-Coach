@@ -233,7 +233,7 @@ export default function HomePage() {
       {/* CTA */}
       <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="rounded-3xl bg-primary p-10 sm:p-16">
+          <div className="rounded-3xl bg-primary p-8 sm:p-12 lg:p-16">
             <Shield className="w-10 h-10 text-white/80 mx-auto mb-4" />
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
               Ready to boost your grades?

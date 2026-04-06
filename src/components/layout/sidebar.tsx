@@ -165,7 +165,7 @@ export function Sidebar() {
       {/* Mobile sidebar */}
       <aside
         className={cn(
-          'lg:hidden fixed inset-y-0 left-0 z-50 w-72 bg-card border-r border-border/50 transform transition-transform duration-300 ease-out',
+          'lg:hidden fixed inset-y-0 left-0 z-50 w-64 bg-card border-r border-border/50 transform transition-transform duration-300 ease-out',
           mobileOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
@@ -173,7 +173,7 @@ export function Sidebar() {
       </aside>
 
       {/* Desktop sidebar */}
-      <aside className="hidden lg:block w-72 border-r border-border/50 h-screen bg-card/50 backdrop-blur-sm flex-shrink-0 sticky top-0">
+      <aside className="hidden lg:block w-64 border-r border-border/50 h-screen bg-card/50 backdrop-blur-sm flex-shrink-0 sticky top-0">
         {navContent}
       </aside>
     </>

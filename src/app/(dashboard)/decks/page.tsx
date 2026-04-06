@@ -32,7 +32,7 @@ export default async function DecksPage() {
       </div>
 
       {decks.length === 0 ? (
-        <div className="border border-dashed border-border rounded-lg p-12 text-center">
+        <div className="border border-dashed border-border rounded-lg p-8 sm:p-12 text-center">
           <p className="text-lg font-medium mb-2">No decks yet</p>
           <p className="text-muted-foreground mb-4">Upload your study material to create your first deck.</p>
           <Link

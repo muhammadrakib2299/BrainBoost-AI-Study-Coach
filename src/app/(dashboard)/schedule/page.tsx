@@ -244,7 +244,7 @@ export default function SchedulePage() {
                     )}
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-2 ml-7">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 ml-7">
                   {plan.topics.map((topic) => (
                     <span
                       key={topic}
@@ -261,7 +261,7 @@ export default function SchedulePage() {
       )}
 
       {!schedule && (
-        <div className="border border-dashed border-border rounded-lg p-12 text-center">
+        <div className="border border-dashed border-border rounded-lg p-6 sm:p-12 text-center">
           <p className="text-lg font-medium mb-2">No schedule yet</p>
           <p className="text-muted-foreground">Set your exam date and let AI create an optimal study plan.</p>
         </div>

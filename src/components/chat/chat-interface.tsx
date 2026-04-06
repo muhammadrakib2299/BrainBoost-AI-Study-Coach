@@ -137,7 +137,7 @@ export function ChatInterface({ deckId, deckTitle }: { deckId: string; deckTitle
   }
 
   return (
-    <div className="flex flex-col h-[calc(100vh-12rem)]">
+    <div className="flex flex-col h-[calc(100vh-10rem)] sm:h-[calc(100vh-12rem)]">
       <div className="border-b border-border pb-3 mb-4">
         <h2 className="font-semibold">AI Tutor</h2>
         <p className="text-sm text-muted-foreground">Studying: {deckTitle}</p>
@@ -173,7 +173,7 @@ export function ChatInterface({ deckId, deckTitle }: { deckId: string; deckTitle
                 className={`flex ${msg.role === 'USER' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-[80%] px-4 py-2.5 rounded-lg text-sm leading-relaxed ${
+                  className={`max-w-[88%] sm:max-w-[75%] px-4 py-2.5 rounded-lg text-sm leading-relaxed ${
                     msg.role === 'USER'
                       ? 'bg-primary text-primary-foreground'
                       : 'bg-secondary text-secondary-foreground'
@@ -186,7 +186,7 @@ export function ChatInterface({ deckId, deckTitle }: { deckId: string; deckTitle
             {/* Streaming response */}
             {streamingText && (
               <div className="flex justify-start">
-                <div className="max-w-[80%] px-4 py-2.5 rounded-lg text-sm leading-relaxed bg-secondary text-secondary-foreground">
+                <div className="max-w-[88%] sm:max-w-[75%] px-4 py-2.5 rounded-lg text-sm leading-relaxed bg-secondary text-secondary-foreground">
                   <p className="whitespace-pre-wrap">{streamingText}</p>
                   <span className="inline-block w-1.5 h-4 bg-muted-foreground/50 animate-pulse ml-0.5" />
                 </div>

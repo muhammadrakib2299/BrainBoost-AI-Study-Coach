@@ -65,7 +65,7 @@ export default async function DeckDetailPage({ params }: { params: { id: string 
 
       {/* Flashcards list */}
       {deck.flashcards.length === 0 ? (
-        <div className="border border-dashed border-border rounded-lg p-12 text-center">
+        <div className="border border-dashed border-border rounded-lg p-6 sm:p-12 text-center">
           <p className="text-lg font-medium mb-2">No flashcards yet</p>
           <p className="text-muted-foreground mb-4">
             Generate flashcards from your uploaded content using AI.

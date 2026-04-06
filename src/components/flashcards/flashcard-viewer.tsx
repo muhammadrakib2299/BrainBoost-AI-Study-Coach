@@ -20,11 +20,11 @@ export function FlashcardViewer({ question, answer, explanation, index, total }:
         Card {index + 1} of {total}
       </p>
       <div
-        className="relative w-full min-h-[240px] cursor-pointer perspective-1000"
+        className="relative w-full min-h-[180px] sm:min-h-[240px] cursor-pointer perspective-1000"
         onClick={() => setFlipped(!flipped)}
       >
         <motion.div
-          className="w-full min-h-[240px] border border-border rounded-lg p-6 flex flex-col items-center justify-center text-center"
+          className="w-full min-h-[180px] sm:min-h-[240px] border border-border rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center text-center"
           animate={{ rotateY: flipped ? 180 : 0 }}
           transition={{ duration: 0.4 }}
           style={{ backfaceVisibility: 'hidden' }}

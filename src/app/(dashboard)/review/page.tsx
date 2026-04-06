@@ -143,7 +143,7 @@ export default function ReviewPage() {
 
       {/* Card */}
       <div
-        className="border border-border rounded-lg p-8 min-h-[280px] flex flex-col items-center justify-center text-center cursor-pointer mb-6"
+        className="border border-border rounded-2xl p-5 sm:p-8 min-h-[200px] sm:min-h-[280px] flex flex-col items-center justify-center text-center cursor-pointer mb-6"
         onClick={() => setFlipped(!flipped)}
       >
         <motion.div
@@ -157,13 +157,13 @@ export default function ReviewPage() {
               <p className="text-xs text-muted-foreground mb-3 uppercase tracking-wide">
                 Question &middot; {card.state.toLowerCase()}
               </p>
-              <p className="text-xl font-medium">{card.question}</p>
+              <p className="text-base sm:text-xl font-medium">{card.question}</p>
               <p className="text-sm text-muted-foreground mt-6">Tap to reveal answer</p>
             </>
           ) : (
             <>
               <p className="text-xs text-muted-foreground mb-3 uppercase tracking-wide">Answer</p>
-              <p className="text-xl font-medium mb-3">{card.answer}</p>
+              <p className="text-base sm:text-xl font-medium mb-3">{card.answer}</p>
               {card.explanation && (
                 <p className="text-sm text-muted-foreground border-t border-border pt-3 mt-3">
                   {card.explanation}
@@ -179,7 +179,7 @@ export default function ReviewPage() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-4 gap-3"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3"
         >
           {ratingButtons.map((btn) => (
             <button

@@ -19,6 +19,7 @@ const REQUEST_RETENTION = 0.9;
 interface CardParams {
   stability: number;
   difficulty: number;
+  dueDate?: Date;
   state: 'new' | 'learning' | 'review' | 'relearning';
   reviewCount: number;
   lapseCount: number;

@@ -29,7 +29,7 @@ export async function GET() {
       return NextResponse.json({ success: false, error: 'No schedule found' }, { status: 404 });
     }
 
-    const dailyPlans = schedule.dailyPlans as DailyPlan[];
+    const dailyPlans = schedule.dailyPlans as unknown as DailyPlan[];
 
     // Generate Google Calendar links for each event
     const events = dailyPlans.map((plan) => {

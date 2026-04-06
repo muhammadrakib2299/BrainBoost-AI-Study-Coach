@@ -32,7 +32,7 @@ export async function GET() {
       );
     }
 
-    const dailyPlans = schedule.dailyPlans as DailyPlan[];
+    const dailyPlans = schedule.dailyPlans as unknown as DailyPlan[];
     const now = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
 
     let ical = `BEGIN:VCALENDAR

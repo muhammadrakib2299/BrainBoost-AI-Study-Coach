@@ -7,7 +7,12 @@
       "Bash(rm -rf brainboost-temp)",
       "Bash(npm install:*)",
       "Bash(npx next:*)",
-      "Bash(npx prisma:*)"
+      "Bash(npx prisma:*)",
+      "Bash(where psql:*)",
+      "Read(//c/Program Files/PostgreSQL/**)",
+      "Bash(export PATH=\"$PATH:/c/Program Files/PostgreSQL/18/bin\")",
+      "Bash(psql -U postgres -c \"SELECT 1\")",
+      "Bash(npm run:*)"
     ]
   }
 }

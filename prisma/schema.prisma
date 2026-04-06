@@ -1,0 +1,211 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// --- Users ---
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  avatarUrl String?
+  plan      Plan     @default(FREE)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  decks          Deck[]
+  quizAttempts   QuizAttempt[]
+  studyProgress  StudyProgress[]
+  studySchedules StudySchedule[]
+  chatMessages   ChatMessage[]
+  weakSpots      WeakSpot[]
+  recallAttempts RecallAttempt[]
+
+  @@map("users")
+}
+
+enum Plan {
+  FREE
+  PRO
+  TEAMS
+}
+
+// --- Decks ---
+model Deck {
+  id             String   @id @default(cuid())
+  userId         String
+  title          String
+  description    String?
+  sourceType     SourceType
+  sourceContent  String?  @db.Text
+  cardCount      Int      @default(0)
+  masteryPercent Float    @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  user           User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  flashcards     Flashcard[]
+  quizAttempts   QuizAttempt[]
+  chatMessages   ChatMessage[]
+  weakSpots      WeakSpot[]
+  recallAttempts RecallAttempt[]
+
+  @@index([userId])
+  @@map("decks")
+}
+
+enum SourceType {
+  PDF
+  TEXT
+  URL
+  IMAGE
+}
+
+// --- Flashcards ---
+model Flashcard {
+  id             String        @id @default(cuid())
+  deckId         String
+  question       String        @db.Text
+  answer         String        @db.Text
+  explanation    String?       @db.Text
+  // FSRS fields
+  stability      Float         @default(1)
+  difficulty     Float         @default(5)
+  dueDate        DateTime      @default(now())
+  lastReviewDate DateTime?
+  reviewCount    Int           @default(0)
+  lapseCount     Int           @default(0)
+  state          CardState     @default(NEW)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  deck Deck @relation(fields: [deckId], references: [id], onDelete: Cascade)
+
+  @@index([deckId])
+  @@index([dueDate])
+  @@map("flashcards")
+}
+
+enum CardState {
+  NEW
+  LEARNING
+  REVIEW
+  RELEARNING
+}
+
+// --- Quiz Attempts ---
+model QuizAttempt {
+  id               String   @id @default(cuid())
+  userId           String
+  deckId           String
+  questions        Json
+  answers          Json
+  score            Float
+  totalQuestions   Int
+  timeTakenSeconds Int?
+  createdAt        DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  deck Deck @relation(fields: [deckId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([deckId])
+  @@map("quiz_attempts")
+}
+
+// --- Study Schedule ---
+model StudySchedule {
+  id         String   @id @default(cuid())
+  userId     String
+  examDate   DateTime
+  dailyPlans Json
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("study_schedules")
+}
+
+// --- Chat Messages ---
+model ChatMessage {
+  id        String   @id @default(cuid())
+  deckId    String
+  userId    String
+  role      ChatRole
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  deck Deck @relation(fields: [deckId], references: [id], onDelete: Cascade)
+
+  @@index([deckId])
+  @@index([userId])
+  @@map("chat_messages")
+}
+
+enum ChatRole {
+  USER
+  ASSISTANT
+}
+
+// --- Study Progress ---
+model StudyProgress {
+  id             String   @id @default(cuid())
+  userId         String
+  date           DateTime @db.Date
+  cardsReviewed  Int      @default(0)
+  cardsLearned   Int      @default(0)
+  quizScore      Float?
+  minutesStudied Int      @default(0)
+  streak         Int      @default(0)
+  createdAt      DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date])
+  @@index([userId])
+  @@map("study_progress")
+}
+
+// --- Weak Spots ---
+model WeakSpot {
+  id             String   @id @default(cuid())
+  userId         String
+  deckId         String
+  concept        String
+  mistakeCount   Int      @default(0)
+  mistakePattern String?
+  lastMistakeAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  deck Deck @relation(fields: [deckId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([deckId])
+  @@map("weak_spots")
+}
+
+// --- Active Recall Attempts ---
+model RecallAttempt {
+  id                String   @id @default(cuid())
+  userId            String
+  deckId            String
+  topic             String
+  userResponse      String   @db.Text
+  completenessScore Float
+  missedConcepts    Json
+  createdAt         DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  deck Deck @relation(fields: [deckId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([deckId])
+  @@map("recall_attempts")
+}

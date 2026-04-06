@@ -5,7 +5,7 @@
 ### Project Setup
 - [x] Initialize Next.js 14 project with App Router
 - [x] Configure Tailwind CSS + Framer Motion
-- [ ] Set up Prisma ORM with PostgreSQL
+- [x] Set up Prisma ORM with PostgreSQL
 - [ ] Set up Supabase project (Auth + File Storage)
 - [x] Configure environment variables (.env.local)
 - [x] Set up project folder structure
@@ -19,12 +19,12 @@
 - [ ] Create user profile page
 
 ### Database Schema
-- [ ] Design and create Users table
-- [ ] Design and create Decks table
-- [ ] Design and create Flashcards table
-- [ ] Design and create Quizzes / QuizAttempts tables
-- [ ] Design and create StudyProgress table
-- [ ] Design and create ChatMessages table (for AI tutor)
+- [x] Design and create Users table
+- [x] Design and create Decks table
+- [x] Design and create Flashcards table
+- [x] Design and create Quizzes / QuizAttempts tables
+- [x] Design and create StudyProgress table
+- [x] Design and create ChatMessages table (for AI tutor)
 - [ ] Run initial Prisma migration
 
 ### File Upload + Parsing

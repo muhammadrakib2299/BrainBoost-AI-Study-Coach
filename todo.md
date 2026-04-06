@@ -12,11 +12,11 @@
 - [x] Set up ESLint + Prettier
 
 ### Authentication
-- [ ] Integrate Supabase Auth (email/password)
-- [ ] Add Google OAuth sign-in
-- [ ] Create sign-up / login pages
-- [ ] Build auth middleware for protected routes
-- [ ] Create user profile page
+- [x] Integrate Supabase Auth (email/password)
+- [x] Add Google OAuth sign-in
+- [x] Create sign-up / login pages
+- [x] Build auth middleware for protected routes
+- [x] Create user profile page
 
 ### Database Schema
 - [x] Design and create Users table

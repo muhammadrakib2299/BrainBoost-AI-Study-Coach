@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { ROUTES } from '@/lib/constants';
+import { PublicNav } from '@/components/layout/public-nav';
+import { PublicFooter } from '@/components/layout/public-footer';
 import {
   FileText,
   Brain,
@@ -72,31 +74,7 @@ const stats = [
 export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Nav */}
-      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border px-4 sm:px-6 lg:px-8 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <Sparkles className="w-4 h-4 text-white" />
-            </div>
-            <span className="text-xl font-bold">BrainBoost</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <Link
-              href={ROUTES.login}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden sm:block"
-            >
-              Log in
-            </Link>
-            <Link
-              href={ROUTES.signup}
-              className="text-sm bg-primary text-white px-5 py-2 rounded-lg hover:bg-primary/90 transition-colors font-medium"
-            >
-              Get Started Free
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <PublicNav />
 
       {/* Hero */}
       <section className="px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-16 sm:pb-20">
@@ -252,20 +230,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border px-4 sm:px-6 py-8">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-primary flex items-center justify-center">
-              <Sparkles className="w-3 h-3 text-white" />
-            </div>
-            <span className="text-sm font-semibold">BrainBoost</span>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} BrainBoost. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <PublicFooter />
     </div>
   );
 }

@@ -1,0 +1,193 @@
+<style>
+.header-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.5rem; margin-bottom: 14px; }
+.project-title { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 6px; }
+.project-tagline { font-size: 14px; color: var(--color-text-secondary); margin: 0 0 16px; line-height: 1.6; }
+.badge-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.badge { font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 20px; }
+.b-teal { background: #E1F5EE; color: #085041; }
+.b-purple { background: #EEEDFE; color: #3C3489; }
+.b-blue { background: #E6F1FB; color: #0C447C; }
+.b-amber { background: #FAEEDA; color: #633806; }
+.b-green { background: #EAF3DE; color: #27500A; }
+.stats-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+.stat-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 1rem; }
+.stat-label { font-size: 12px; color: var(--color-text-secondary); margin: 0 0 4px; }
+.stat-value { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin: 0; }
+.section-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; margin-bottom: 14px; }
+.section-title { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 14px; }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+.feature-item { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 12px 14px; }
+.feature-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
+.feature-desc { font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5; }
+.feature-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; vertical-align: middle; }
+.tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+.tech-group { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 12px 14px; }
+.tech-group-label { font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); margin: 0 0 8px; }
+.tech-item { font-size: 13px; color: var(--color-text-primary); padding: 3px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.tech-item:last-child { border-bottom: none; padding-bottom: 0; }
+.tech-sub { font-size: 11px; color: var(--color-text-secondary); }
+.mvp-steps { display: flex; flex-direction: column; gap: 10px; }
+.mvp-step { display: flex; gap: 14px; align-items: flex-start; }
+.step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--color-background-secondary); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; color: var(--color-text-secondary); flex-shrink: 0; }
+.step-body { flex: 1; padding-top: 4px; }
+.step-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 2px; }
+.step-desc { font-size: 12px; color: var(--color-text-secondary); margin: 0; }
+.explore-btn { font-size: 13px; color: var(--color-text-info); background: none; border: 0.5px solid var(--color-border-info); border-radius: var(--border-radius-md); padding: 6px 14px; cursor: pointer; margin-top: 4px; }
+.explore-btn:hover { background: var(--color-background-info); }
+</style>
+
+<div class="header-card">
+  <p class="project-title">BrainBoost — AI Study Coach</p>
+  <p class="project-tagline">Upload any notes, PDF, or textbook chapter. The AI extracts key concepts, generates flashcards and quizzes, tracks what you know, and builds a smart daily study schedule using spaced repetition — so you study smarter, not harder.</p>
+  <div class="badge-row">
+    <span class="badge b-teal">Education AI</span>
+    <span class="badge b-purple">Next.js 14</span>
+    <span class="badge b-blue">Claude API</span>
+    <span class="badge b-amber">Spaced repetition</span>
+    <span class="badge b-green">SaaS</span>
+  </div>
+</div>
+
+<div class="stats-row">
+  <div class="stat-card">
+    <p class="stat-label">Target users</p>
+    <p class="stat-value">Students</p>
+  </div>
+  <div class="stat-card">
+    <p class="stat-label">MVP timeline</p>
+    <p class="stat-value">4–6 wks</p>
+  </div>
+  <div class="stat-card">
+    <p class="stat-label">Monetization</p>
+    <p class="stat-value">Freemium</p>
+  </div>
+  <div class="stat-card">
+    <p class="stat-label">Difficulty</p>
+    <p class="stat-value">Medium</p>
+  </div>
+</div>
+
+<div class="section-card">
+  <p class="section-title">Core features</p>
+  <div class="feature-grid">
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#1D9E75"></span>PDF / note upload</p>
+      <p class="feature-desc">Upload PDFs, paste text, or link a URL. AI parses and extracts the key concepts automatically.</p>
+    </div>
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#534AB7"></span>AI flashcard generator</p>
+      <p class="feature-desc">Automatically creates Q&A flashcards from your content. Edit or regenerate any card.</p>
+    </div>
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#185FA5"></span>Smart quiz mode</p>
+      <p class="feature-desc">Multiple choice, true/false, and fill-in-the-blank quizzes with instant AI explanations.</p>
+    </div>
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#BA7517"></span>Spaced repetition</p>
+      <p class="feature-desc">SM-2 algorithm schedules reviews based on how well you know each card. Hard cards come back sooner.</p>
+    </div>
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#993556"></span>Study schedule</p>
+      <p class="feature-desc">Set your exam date. AI builds a day-by-day study plan prioritizing weak topics first.</p>
+    </div>
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#639922"></span>Progress dashboard</p>
+      <p class="feature-desc">Track mastery per topic, daily streaks, quiz scores, and time studied over time.</p>
+    </div>
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#D85A30"></span>AI explain mode</p>
+      <p class="feature-desc">Got an answer wrong? Ask the AI to explain it in simpler terms or with an example.</p>
+    </div>
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#888780"></span>Summary generator</p>
+      <p class="feature-desc">One-click summary of uploaded content at different detail levels — brief, medium, or deep.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section-card">
+  <p class="section-title">Technology stack</p>
+  <div class="tech-grid">
+    <div class="tech-group">
+      <p class="tech-group-label">Frontend</p>
+      <div class="tech-item">Next.js 14 <span class="tech-sub">— App Router + SSR</span></div>
+      <div class="tech-item">React 18 <span class="tech-sub">— UI components</span></div>
+      <div class="tech-item">Tailwind CSS <span class="tech-sub">— Styling</span></div>
+      <div class="tech-item">Framer Motion <span class="tech-sub">— Animations</span></div>
+    </div>
+    <div class="tech-group">
+      <p class="tech-group-label">AI / Backend</p>
+      <div class="tech-item">Claude API <span class="tech-sub">— Flashcards, quiz, explain</span></div>
+      <div class="tech-item">PDF.js / pdf-parse <span class="tech-sub">— PDF extraction</span></div>
+      <div class="tech-item">Next.js API routes <span class="tech-sub">— Backend logic</span></div>
+      <div class="tech-item">SM-2 algorithm <span class="tech-sub">— Spaced repetition</span></div>
+    </div>
+    <div class="tech-group">
+      <p class="tech-group-label">Data</p>
+      <div class="tech-item">PostgreSQL <span class="tech-sub">— Users, cards, progress</span></div>
+      <div class="tech-item">Prisma ORM <span class="tech-sub">— Database queries</span></div>
+      <div class="tech-item">Supabase <span class="tech-sub">— Auth + file storage</span></div>
+      <div class="tech-item">Redis <span class="tech-sub">— Session caching</span></div>
+    </div>
+    <div class="tech-group">
+      <p class="tech-group-label">DevOps / Tools</p>
+      <div class="tech-item">Vercel <span class="tech-sub">— Deployment</span></div>
+      <div class="tech-item">Stripe <span class="tech-sub">— Payments</span></div>
+      <div class="tech-item">Recharts <span class="tech-sub">— Progress charts</span></div>
+      <div class="tech-item">Resend <span class="tech-sub">— Email reminders</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section-card">
+  <p class="section-title">MVP build roadmap</p>
+  <div class="mvp-steps">
+    <div class="mvp-step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <p class="step-title">Week 1 — Upload + parse</p>
+        <p class="step-desc">File upload UI, PDF text extraction, store raw content in DB, basic auth with Supabase.</p>
+      </div>
+    </div>
+    <div class="mvp-step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <p class="step-title">Week 2 — AI flashcard generation</p>
+        <p class="step-desc">Claude API prompt to extract concepts and generate Q&A pairs. Display, edit, and save flashcard deck.</p>
+      </div>
+    </div>
+    <div class="mvp-step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <p class="step-title">Week 3 — Quiz mode + scoring</p>
+        <p class="step-desc">Multiple choice quiz from flashcards, score tracking, AI explanation on wrong answers.</p>
+      </div>
+    </div>
+    <div class="mvp-step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <p class="step-title">Week 4 — Spaced repetition engine</p>
+        <p class="step-desc">Implement SM-2 algorithm, "Easy / Hard / Again" rating per card, next-review scheduling.</p>
+      </div>
+    </div>
+    <div class="mvp-step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <p class="step-title">Week 5 — Dashboard + schedule</p>
+        <p class="step-desc">Progress charts, topic mastery %, exam date input, AI-generated daily study plan.</p>
+      </div>
+    </div>
+    <div class="mvp-step">
+      <div class="step-num">6</div>
+      <div class="step-body">
+        <p class="step-title">Week 6 — Polish + launch</p>
+        <p class="step-desc">Stripe payments, email reminders, mobile responsiveness, deploy to Vercel.</p>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap;">
+    <button class="explore-btn" onclick="sendPrompt('Show me the database schema for AI Study Coach')">View database schema ↗</button>
+    <button class="explore-btn" onclick="sendPrompt('Write the Claude API prompt for generating flashcards from study notes')">Get AI prompt code ↗</button>
+    <button class="explore-btn" onclick="sendPrompt('Show me the folder structure for the AI Study Coach Next.js project')">View folder structure ↗</button>
+  </div>
+</div>

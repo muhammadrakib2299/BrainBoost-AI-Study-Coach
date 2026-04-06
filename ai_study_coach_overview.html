@@ -38,12 +38,12 @@
 
 <div class="header-card">
   <p class="project-title">BrainBoost — AI Study Coach</p>
-  <p class="project-tagline">Upload any notes, PDF, or textbook chapter. The AI extracts key concepts, generates flashcards and quizzes, tracks what you know, and builds a smart daily study schedule using spaced repetition — so you study smarter, not harder.</p>
+  <p class="project-tagline">Upload any notes, PDF, or textbook chapter — even images and diagrams. The AI extracts key concepts, generates flashcards and quizzes, acts as a personal tutor, tracks what you know, and builds a smart daily study schedule using spaced repetition — so you study smarter, not harder.</p>
   <div class="badge-row">
     <span class="badge b-teal">Education AI</span>
     <span class="badge b-purple">Next.js 14</span>
     <span class="badge b-blue">Claude API</span>
-    <span class="badge b-amber">Spaced repetition</span>
+    <span class="badge b-amber">FSRS Spaced Repetition</span>
     <span class="badge b-green">SaaS</span>
   </div>
 </div>
@@ -63,44 +63,52 @@
   </div>
   <div class="stat-card">
     <p class="stat-label">Difficulty</p>
-    <p class="stat-value">Medium</p>
+    <p class="stat-value">Medium+</p>
   </div>
 </div>
 
 <div class="section-card">
-  <p class="section-title">Core features</p>
+  <p class="section-title">Core features (MVP)</p>
   <div class="feature-grid">
     <div class="feature-item">
-      <p class="feature-name"><span class="feature-dot" style="background:#1D9E75"></span>PDF / note upload</p>
-      <p class="feature-desc">Upload PDFs, paste text, or link a URL. AI parses and extracts the key concepts automatically.</p>
+      <p class="feature-name"><span class="feature-dot" style="background:#1D9E75"></span>PDF / note upload + image OCR</p>
+      <p class="feature-desc">Upload PDFs, paste text, or link a URL. AI parses text, diagrams, tables, and handwritten notes using Claude's vision to extract key concepts automatically.</p>
     </div>
     <div class="feature-item">
       <p class="feature-name"><span class="feature-dot" style="background:#534AB7"></span>AI flashcard generator</p>
-      <p class="feature-desc">Automatically creates Q&A flashcards from your content. Edit or regenerate any card.</p>
+      <p class="feature-desc">Automatically creates Q&A flashcards from your content. Edit, regenerate, or export any deck to Anki (.apkg) or printable PDF.</p>
     </div>
     <div class="feature-item">
       <p class="feature-name"><span class="feature-dot" style="background:#185FA5"></span>Smart quiz mode</p>
-      <p class="feature-desc">Multiple choice, true/false, and fill-in-the-blank quizzes with instant AI explanations.</p>
+      <p class="feature-desc">Multiple choice, true/false, fill-in-the-blank, and essay-type quizzes with AI grading. Includes timed mode for exam simulation.</p>
     </div>
     <div class="feature-item">
-      <p class="feature-name"><span class="feature-dot" style="background:#BA7517"></span>Spaced repetition</p>
-      <p class="feature-desc">SM-2 algorithm schedules reviews based on how well you know each card. Hard cards come back sooner.</p>
+      <p class="feature-name"><span class="feature-dot" style="background:#BA7517"></span>FSRS spaced repetition</p>
+      <p class="feature-desc">FSRS algorithm (successor to SM-2, more accurate) schedules reviews based on how well you know each card. Hard cards come back sooner.</p>
     </div>
     <div class="feature-item">
-      <p class="feature-name"><span class="feature-dot" style="background:#993556"></span>Study schedule</p>
-      <p class="feature-desc">Set your exam date. AI builds a day-by-day study plan prioritizing weak topics first.</p>
+      <p class="feature-name"><span class="feature-dot" style="background:#993556"></span>Study schedule + calendar sync</p>
+      <p class="feature-desc">Set your exam date. AI builds a day-by-day study plan prioritizing weak topics. Syncs to Google Calendar / iCal so study blocks appear in your real schedule.</p>
     </div>
     <div class="feature-item">
-      <p class="feature-name"><span class="feature-dot" style="background:#639922"></span>Progress dashboard</p>
-      <p class="feature-desc">Track mastery per topic, daily streaks, quiz scores, and time studied over time.</p>
+      <p class="feature-name"><span class="feature-dot" style="background:#639922"></span>Progress dashboard + exam readiness</p>
+      <p class="feature-desc">Track mastery per topic, daily streaks, quiz scores, and time studied. Includes a predicted exam readiness score — "You're ~72% ready."</p>
     </div>
     <div class="feature-item">
-      <p class="feature-name"><span class="feature-dot" style="background:#D85A30"></span>AI explain mode</p>
-      <p class="feature-desc">Got an answer wrong? Ask the AI to explain it in simpler terms or with an example.</p>
+      <p class="feature-name"><span class="feature-dot" style="background:#D85A30"></span>AI tutor chat</p>
+      <p class="feature-desc">Persistent AI chat per topic — ask follow-up questions, request analogies, or say "explain like I'm 5." A real tutor, not just flashcards.</p>
     </div>
     <div class="feature-item">
       <p class="feature-name"><span class="feature-dot" style="background:#888780"></span>Summary generator</p>
-      <p class="feature-desc">One-click summary of uploaded content at different detail levels — brief, medium, or deep.</p>
+      <p class="feature-desc">One-click summaries in multiple formats — brief/medium/deep, Cornell Notes, or visual mind map output.</p>
+    </div>
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#2E86AB"></span>Active recall writing</p>
+      <p class="feature-desc">After reviewing a topic, write what you remember from memory. AI compares your response against source material and scores completeness.</p>
+    </div>
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#A23B72"></span>Weak spot drills</p>
+      <p class="feature-desc">AI analyzes your mistake patterns — confusing similar terms, missing edge cases — and generates targeted drill sets that attack specific weaknesses.</p>
     </div>
   </div>
 </div>
@@ -117,10 +125,10 @@
     </div>
     <div class="tech-group">
       <p class="tech-group-label">AI / Backend</p>
-      <div class="tech-item">Claude API <span class="tech-sub">— Flashcards, quiz, explain</span></div>
+      <div class="tech-item">Claude API + Vision <span class="tech-sub">— Flashcards, quiz, tutor, OCR</span></div>
       <div class="tech-item">PDF.js / pdf-parse <span class="tech-sub">— PDF extraction</span></div>
       <div class="tech-item">Next.js API routes <span class="tech-sub">— Backend logic</span></div>
-      <div class="tech-item">SM-2 algorithm <span class="tech-sub">— Spaced repetition</span></div>
+      <div class="tech-item">FSRS algorithm <span class="tech-sub">— Spaced repetition (replaces SM-2)</span></div>
     </div>
     <div class="tech-group">
       <p class="tech-group-label">Data</p>
@@ -140,48 +148,92 @@
 </div>
 
 <div class="section-card">
+  <p class="section-title">Post-MVP features (Phase 2)</p>
+  <div class="feature-grid">
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#1D9E75"></span>Collaborative study rooms</p>
+      <p class="feature-desc">Share decks, quiz each other in real-time, and study the same material together. Group leaderboards and shared progress tracking.</p>
+    </div>
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#534AB7"></span>Concept map / knowledge graph</p>
+      <p class="feature-desc">Auto-generated visual map showing how concepts relate. See gaps — "you've mastered X but haven't studied Y, which depends on X."</p>
+    </div>
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#185FA5"></span>Voice input / audio notes</p>
+      <p class="feature-desc">Record lectures or explain concepts aloud. Whisper API transcribes, AI generates cards. Audio-based review for studying on the go.</p>
+    </div>
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#BA7517"></span>Multi-format export</p>
+      <p class="feature-desc">Export decks to Anki (.apkg), printable PDF study sheets, or shareable links. Reduces lock-in and drives adoption through sharing.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section-card">
+  <p class="section-title">Monetization tiers</p>
+  <div class="feature-grid">
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#639922"></span>Free tier</p>
+      <p class="feature-desc">3 decks, 10 AI explanations/day, basic quiz mode, standard PDF processing queue.</p>
+    </div>
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#BA7517"></span>Pro ($8/mo)</p>
+      <p class="feature-desc">Unlimited decks, unlimited AI tutor chat, timed exam mode, calendar sync, priority PDF processing, export to Anki.</p>
+    </div>
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#534AB7"></span>Teams ($5/user/mo)</p>
+      <p class="feature-desc">Collaborative study rooms, shared decks, group leaderboards, educator dashboard for teachers/tutors.</p>
+    </div>
+    <div class="feature-item">
+      <p class="feature-name"><span class="feature-dot" style="background:#185FA5"></span>API access</p>
+      <p class="feature-desc">Let power users and educators build on top of BrainBoost. Programmatic flashcard generation and progress tracking.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section-card">
   <p class="section-title">MVP build roadmap</p>
   <div class="mvp-steps">
     <div class="mvp-step">
       <div class="step-num">1</div>
       <div class="step-body">
-        <p class="step-title">Week 1 — Upload + parse</p>
-        <p class="step-desc">File upload UI, PDF text extraction, store raw content in DB, basic auth with Supabase.</p>
+        <p class="step-title">Week 1 — Upload + parse + image OCR</p>
+        <p class="step-desc">File upload UI, PDF text extraction, Claude Vision for diagrams/tables/handwriting, store raw content in DB, basic auth with Supabase.</p>
       </div>
     </div>
     <div class="mvp-step">
       <div class="step-num">2</div>
       <div class="step-body">
-        <p class="step-title">Week 2 — AI flashcard generation</p>
-        <p class="step-desc">Claude API prompt to extract concepts and generate Q&A pairs. Display, edit, and save flashcard deck.</p>
+        <p class="step-title">Week 2 — AI flashcard generation + tutor chat</p>
+        <p class="step-desc">Claude API prompt to extract concepts and generate Q&A pairs. Display, edit, and save flashcard deck. Persistent AI tutor chat per topic.</p>
       </div>
     </div>
     <div class="mvp-step">
       <div class="step-num">3</div>
       <div class="step-body">
-        <p class="step-title">Week 3 — Quiz mode + scoring</p>
-        <p class="step-desc">Multiple choice quiz from flashcards, score tracking, AI explanation on wrong answers.</p>
+        <p class="step-title">Week 3 — Quiz mode + active recall + scoring</p>
+        <p class="step-desc">Multiple choice, essay-type, and timed quizzes. Active recall writing mode. Score tracking, AI explanation on wrong answers, weak spot analysis.</p>
       </div>
     </div>
     <div class="mvp-step">
       <div class="step-num">4</div>
       <div class="step-body">
-        <p class="step-title">Week 4 — Spaced repetition engine</p>
-        <p class="step-desc">Implement SM-2 algorithm, "Easy / Hard / Again" rating per card, next-review scheduling.</p>
+        <p class="step-title">Week 4 — FSRS spaced repetition engine</p>
+        <p class="step-desc">Implement FSRS algorithm (more accurate than SM-2), "Easy / Hard / Again" rating per card, next-review scheduling, weak spot drills.</p>
       </div>
     </div>
     <div class="mvp-step">
       <div class="step-num">5</div>
       <div class="step-body">
-        <p class="step-title">Week 5 — Dashboard + schedule</p>
-        <p class="step-desc">Progress charts, topic mastery %, exam date input, AI-generated daily study plan.</p>
+        <p class="step-title">Week 5 — Dashboard + schedule + calendar sync</p>
+        <p class="step-desc">Progress charts, topic mastery %, exam readiness score, exam date input, AI-generated daily study plan, Google Calendar / iCal sync.</p>
       </div>
     </div>
     <div class="mvp-step">
       <div class="step-num">6</div>
       <div class="step-body">
         <p class="step-title">Week 6 — Polish + launch</p>
-        <p class="step-desc">Stripe payments, email reminders, mobile responsiveness, deploy to Vercel.</p>
+        <p class="step-desc">Stripe payments with free/pro tiers, email reminders, summary generator (Cornell Notes + mind map), mobile responsiveness, deploy to Vercel.</p>
       </div>
     </div>
   </div>

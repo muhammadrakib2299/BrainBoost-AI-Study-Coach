@@ -11,6 +11,25 @@ export const metadata: Metadata = {
     template: `%s | ${APP_NAME}`,
   },
   description: APP_DESCRIPTION,
+  keywords: [
+    'AI study coach',
+    'flashcards',
+    'spaced repetition',
+    'FSRS',
+    'quiz generator',
+    'study planner',
+    'exam prep',
+  ],
+  openGraph: {
+    title: APP_NAME,
+    description: APP_DESCRIPTION,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: APP_NAME,
+    description: APP_DESCRIPTION,
+  },
 };
 
 export default function RootLayout({

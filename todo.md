@@ -151,37 +151,37 @@
 ## Week 6 — Polish + Launch
 
 ### Summary Generator
-- [ ] Build API route: POST /api/summary/generate
-- [ ] Design Claude prompts for brief / medium / deep summaries
-- [ ] Design Claude prompt for Cornell Notes format output
-- [ ] Design Claude prompt for mind map structured output
+- [x] Build API route: POST /api/summary/generate
+- [x] Design Claude prompts for brief / medium / deep summaries
+- [x] Design Claude prompt for Cornell Notes format output
+- [x] Design Claude prompt for mind map structured output
 - [ ] Build summary display UI with format toggle
 
 ### Payments (Stripe)
-- [ ] Set up Stripe account and API keys
-- [ ] Create Free and Pro product/price in Stripe
-- [ ] Build API route: POST /api/stripe/checkout
-- [ ] Build API route: POST /api/stripe/webhook
+- [x] Set up Stripe account and API keys
+- [x] Create Free and Pro product/price in Stripe
+- [x] Build API route: POST /api/stripe/checkout
+- [x] Build API route: POST /api/stripe/webhook
 - [ ] Implement subscription status check middleware
-- [ ] Build pricing page UI
+- [x] Build pricing page UI
 - [ ] Add upgrade prompts on free tier limits (3 decks, 10 AI/day)
-- [ ] Handle subscription cancellation
+- [x] Handle subscription cancellation
 
 ### Email Reminders (Resend)
-- [ ] Set up Resend account and API key
-- [ ] Build daily study reminder email template
-- [ ] Build API route or cron: send reminder emails
+- [x] Set up Resend account and API key
+- [x] Build daily study reminder email template
+- [x] Build API route or cron: send reminder emails
 - [ ] Add email preference settings in user profile
-- [ ] Send streak-at-risk notifications
+- [x] Send streak-at-risk notifications
 
 ### Polish + Responsive
 - [ ] Mobile responsive — all pages
-- [ ] Loading states and skeleton screens
+- [x] Loading states and skeleton screens
 - [ ] Error handling and toast notifications
-- [ ] Empty states for decks, quizzes, dashboard
-- [ ] SEO: meta tags, Open Graph, favicon
-- [ ] Landing page with feature showcase
-- [ ] 404 and error pages
+- [x] Empty states for decks, quizzes, dashboard
+- [x] SEO: meta tags, Open Graph, favicon
+- [x] Landing page with feature showcase
+- [x] 404 and error pages
 
 ### Deploy
 - [ ] Configure Vercel project

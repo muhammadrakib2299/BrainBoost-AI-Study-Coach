@@ -131,7 +131,7 @@ export function FileUpload() {
           onDragLeave={handleDrag}
           onDragOver={handleDrag}
           onDrop={handleDrop}
-          className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors cursor-pointer ${
+          className={`border-2 border-dashed rounded-lg p-4 sm:p-6 lg:p-8 text-center transition-colors cursor-pointer ${
             dragActive ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'
           }`}
           onClick={() => document.getElementById('file-input')?.click()}
@@ -166,7 +166,7 @@ export function FileUpload() {
         <textarea
           value={textContent}
           onChange={(e) => setTextContent(e.target.value)}
-          rows={8}
+          rows={5}
           className="w-full px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring resize-y"
           placeholder="Paste your study notes here..."
         />

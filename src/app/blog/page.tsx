@@ -85,7 +85,7 @@ export default function BlogPage() {
           {/* Featured post */}
           <Link
             href={featuredPost.slug}
-            className="block rounded-2xl border border-border bg-card p-6 sm:p-8 mb-10 card-hover"
+            className="block rounded-2xl border border-border bg-card p-4 sm:p-6 lg:p-8 mb-10 card-hover"
           >
             <div className="flex flex-col md:flex-row gap-6 items-start">
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -112,7 +112,7 @@ export default function BlogPage() {
           </Link>
 
           {/* Post grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
             {posts.map((post) => (
               <Link
                 key={post.title}

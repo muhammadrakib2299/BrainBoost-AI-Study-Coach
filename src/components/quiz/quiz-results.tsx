@@ -24,7 +24,7 @@ export function QuizResults({ score, correct, total, results, questions, deckId 
     <div>
       {/* Score summary */}
       <div className="text-center py-8 border border-border rounded-lg mb-6">
-        <p className={`text-5xl font-bold ${scoreColor}`}>{Math.round(score)}%</p>
+        <p className={`text-3xl sm:text-4xl lg:text-5xl font-bold ${scoreColor}`}>{Math.round(score)}%</p>
         <p className="text-muted-foreground mt-2">
           {correct} correct out of {total} questions
         </p>
@@ -37,19 +37,19 @@ export function QuizResults({ score, correct, total, results, questions, deckId 
       <div className="flex gap-3 mb-8 justify-center">
         <Link
           href={`/quiz?deck=${deckId}`}
-          className="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+          className="px-4 py-2.5 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
         >
           Retake Quiz
         </Link>
         <Link
           href={`/decks/${deckId}`}
-          className="px-4 py-2 border border-border rounded-lg text-sm hover:bg-secondary transition-colors"
+          className="px-4 py-2.5 border border-border rounded-lg text-sm hover:bg-secondary transition-colors"
         >
           Back to Deck
         </Link>
         <Link
           href={`/review?deck=${deckId}`}
-          className="px-4 py-2 border border-border rounded-lg text-sm hover:bg-secondary transition-colors"
+          className="px-4 py-2.5 border border-border rounded-lg text-sm hover:bg-secondary transition-colors"
         >
           Review Cards
         </Link>

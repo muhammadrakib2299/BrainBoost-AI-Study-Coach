@@ -95,7 +95,7 @@ export default function PricingPublicPage() {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`rounded-2xl border p-6 sm:p-7 relative flex flex-col ${
+              className={`rounded-2xl border p-5 sm:p-6 lg:p-7 relative flex flex-col ${
                 plan.popular ? 'border-primary shadow-lg' : 'border-border'
               }`}
             >
@@ -108,7 +108,7 @@ export default function PricingPublicPage() {
               <div className="mb-5">
                 <h3 className="text-lg font-bold">{plan.name}</h3>
                 <div className="mt-2 mb-2">
-                  <span className="text-3xl sm:text-4xl font-bold">{plan.price}</span>
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-bold">{plan.price}</span>
                   <span className="text-muted-foreground text-sm">{plan.period}</span>
                 </div>
                 <p className="text-sm text-muted-foreground">{plan.desc}</p>

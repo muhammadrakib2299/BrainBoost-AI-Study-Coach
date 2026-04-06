@@ -22,7 +22,7 @@ export default async function DeckDetailPage({ params }: { params: { id: string 
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
         <div>
           <Link href="/decks" className="text-sm text-muted-foreground hover:text-foreground mb-2 block">
             &larr; Back to decks

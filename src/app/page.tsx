@@ -123,7 +123,7 @@ export default function HomePage() {
       {/* Stats */}
       <section className="px-4 sm:px-6 lg:px-8 py-12 bg-secondary/50">
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center p-5 rounded-2xl bg-card border border-border">
                 <stat.icon className="w-5 h-5 text-primary mx-auto mb-2" />
@@ -147,7 +147,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
             {features.map((f) => (
               <div
                 key={f.title}
@@ -194,7 +194,7 @@ export default function HomePage() {
               },
             ].map((item) => (
               <div key={item.step} className="text-center">
-                <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-primary flex items-center justify-center mx-auto mb-4">
                   <item.icon className="w-6 h-6 text-white" />
                 </div>
                 <div className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold mb-2">

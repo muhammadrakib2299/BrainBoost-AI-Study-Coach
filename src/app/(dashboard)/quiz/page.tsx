@@ -124,7 +124,7 @@ export default function QuizPage() {
       <h1 className="text-2xl font-bold mb-2">Start a Quiz</h1>
       <p className="text-muted-foreground mb-8">Test your knowledge with AI-generated questions.</p>
 
-      <div className="border border-border rounded-lg p-6 space-y-5">
+      <div className="border border-border rounded-lg p-4 sm:p-6 space-y-5">
         <div>
           <label className="block text-sm font-medium mb-1">Select deck</label>
           <select

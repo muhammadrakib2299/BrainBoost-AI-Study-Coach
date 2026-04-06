@@ -69,7 +69,7 @@ export default function PricingPage() {
         {plans.map((plan) => (
           <div
             key={plan.key}
-            className={`border rounded-lg p-6 relative ${
+            className={`border rounded-lg p-5 sm:p-6 relative ${
               plan.popular ? 'border-primary shadow-md' : 'border-border'
             }`}
           >
@@ -80,7 +80,7 @@ export default function PricingPage() {
             )}
             <h3 className="text-lg font-semibold mb-1">{plan.name}</h3>
             <div className="mb-4">
-              <span className="text-3xl font-bold">{plan.price}</span>
+              <span className="text-2xl sm:text-3xl font-bold">{plan.price}</span>
               <span className="text-muted-foreground text-sm">{plan.period}</span>
             </div>
             <ul className="space-y-2 mb-6">

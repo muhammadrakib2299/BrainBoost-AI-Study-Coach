@@ -9,7 +9,7 @@ export default function NewDeckPage() {
           Upload a PDF, paste your notes, or provide a URL to get started.
         </p>
       </div>
-      <div className="border border-border rounded-lg p-6">
+      <div className="border border-border rounded-lg p-4 sm:p-6">
         <FileUpload />
       </div>
     </div>

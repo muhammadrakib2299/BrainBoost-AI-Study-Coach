@@ -46,7 +46,7 @@ export function StatsCards({ dueCards, deckCount, streak, examReadiness }: Stats
   ];
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
       {stats.map((stat) => (
         <div
           key={stat.label}
@@ -57,7 +57,7 @@ export function StatsCards({ dueCards, deckCount, streak, examReadiness }: Stats
               <stat.icon className={`w-5 h-5 ${stat.color}`} />
             </div>
           </div>
-          <p className="text-2xl sm:text-3xl font-bold">{stat.value}</p>
+          <p className="text-xl sm:text-2xl lg:text-3xl font-bold">{stat.value}</p>
           <p className="text-sm text-muted-foreground mt-0.5">{stat.label}</p>
         </div>
       ))}

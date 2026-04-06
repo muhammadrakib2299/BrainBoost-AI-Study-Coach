@@ -116,7 +116,7 @@ export default function DashboardPage() {
       )}
 
       {data.deckCount === 0 ? (
-        <div className="rounded-2xl border-2 border-dashed border-border p-12 sm:p-16 text-center">
+        <div className="rounded-2xl border-2 border-dashed border-border p-8 sm:p-12 lg:p-16 text-center">
           <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
             <BookOpen className="w-8 h-8 text-primary" />
           </div>

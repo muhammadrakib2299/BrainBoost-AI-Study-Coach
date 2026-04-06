@@ -93,7 +93,7 @@ export default function AboutPage() {
           <h2 className="text-2xl sm:text-3xl font-bold mb-4">The Team Behind BrainBoost</h2>
           <p className="text-muted-foreground mb-10">Passionate about education and technology.</p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
             {team.map((member) => (
               <div key={member.name} className="bg-card border border-border rounded-2xl p-6">
                 <div className="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold mx-auto mb-4">

@@ -28,14 +28,14 @@
 - [ ] Run initial Prisma migration
 
 ### File Upload + Parsing
-- [ ] Build file upload UI (drag & drop + file picker)
-- [ ] Implement PDF text extraction with pdf-parse
-- [ ] Implement image/diagram OCR using Claude Vision API
-- [ ] Handle paste-text input
-- [ ] Handle URL input (fetch and extract page content)
-- [ ] Store raw extracted content in database
-- [ ] Show upload progress and extraction status
-- [ ] Add file size and type validation
+- [x] Build file upload UI (drag & drop + file picker)
+- [x] Implement PDF text extraction with pdf-parse
+- [x] Implement image/diagram OCR using Claude Vision API
+- [x] Handle paste-text input
+- [x] Handle URL input (fetch and extract page content)
+- [x] Store raw extracted content in database
+- [x] Show upload progress and extraction status
+- [x] Add file size and type validation
 
 ---
 

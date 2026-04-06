@@ -1,9 +1,13 @@
 import { Resend } from 'resend';
 
-export const resend = new Resend(process.env.RESEND_API_KEY);
+let _resend: Resend | null = null;
+function getResend() {
+  if (!_resend) _resend = new Resend(process.env.RESEND_API_KEY || '');
+  return _resend;
+}
 
 export async function sendStudyReminder(email: string, name: string, dueCards: number) {
-  await resend.emails.send({
+  await getResend().emails.send({
     from: 'BrainBoost <noreply@brainboost.app>',
     to: email,
     subject: `You have ${dueCards} cards due for review!`,
@@ -25,7 +29,7 @@ export async function sendStudyReminder(email: string, name: string, dueCards: n
 }
 
 export async function sendStreakRiskEmail(email: string, name: string, currentStreak: number) {
-  await resend.emails.send({
+  await getResend().emails.send({
     from: 'BrainBoost <noreply@brainboost.app>',
     to: email,
     subject: `Don't lose your ${currentStreak}-day streak!`,

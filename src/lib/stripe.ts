@@ -1,9 +1,21 @@
 import Stripe from 'stripe';
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-03-31.basil',
-  typescript: true,
-});
+function getStripeClient() {
+  const key = process.env.STRIPE_SECRET_KEY;
+  if (!key) {
+    throw new Error('STRIPE_SECRET_KEY is not set');
+  }
+  return new Stripe(key, {
+    typescript: true,
+  });
+}
+
+// Lazy initialization — only created when actually used at runtime
+let _stripe: Stripe | null = null;
+export function getStripe() {
+  if (!_stripe) _stripe = getStripeClient();
+  return _stripe;
+}
 
 export const PLANS = {
   free: {
@@ -13,7 +25,7 @@ export const PLANS = {
   },
   pro: {
     name: 'Pro',
-    price: 800, // $8.00 in cents
+    price: 800,
     priceId: process.env.STRIPE_PRO_PRICE_ID,
     features: [
       'Unlimited decks',
@@ -26,7 +38,7 @@ export const PLANS = {
   },
   teams: {
     name: 'Teams',
-    price: 500, // $5.00/user in cents
+    price: 500,
     priceId: process.env.STRIPE_TEAMS_PRICE_ID,
     features: [
       'Collaborative study rooms',

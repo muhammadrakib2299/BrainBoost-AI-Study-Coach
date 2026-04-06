@@ -102,20 +102,20 @@
 ## Week 4 — FSRS Spaced Repetition Engine
 
 ### FSRS Algorithm
-- [ ] Implement FSRS core algorithm (stability, difficulty, retrievability)
-- [ ] Build card rating UI: Again / Hard / Good / Easy buttons
-- [ ] Calculate next review date based on rating
-- [ ] Build API route: POST /api/review/rate
-- [ ] Build API route: GET /api/review/due (fetch today's due cards)
-- [ ] Create review session UI (card queue)
-- [ ] Show cards due count on dashboard
-- [ ] Handle new cards vs review cards scheduling
+- [x] Implement FSRS core algorithm (stability, difficulty, retrievability)
+- [x] Build card rating UI: Again / Hard / Good / Easy buttons
+- [x] Calculate next review date based on rating
+- [x] Build API route: POST /api/review/rate
+- [x] Build API route: GET /api/review/due (fetch today's due cards)
+- [x] Create review session UI (card queue)
+- [x] Show cards due count on dashboard
+- [x] Handle new cards vs review cards scheduling
 
 ### Weak Spot Drills
-- [ ] Build API route: POST /api/drills/generate
-- [ ] Design Claude prompt to generate targeted drills from weak spot data
-- [ ] Create drill session UI
-- [ ] Track drill performance and update weak spot scores
+- [x] Build API route: POST /api/drills/generate
+- [x] Design Claude prompt to generate targeted drills from weak spot data
+- [x] Create drill session UI
+- [x] Track drill performance and update weak spot scores
 
 ---
 
